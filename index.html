@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Exam - Interactive Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="IQOE 2026.jpg" alt="Quantum Exam Logo" class="logo">
+                <h1 class="site-title">Quantum Exam</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#experiences">Explore</a></li>
+                <li><a href="#concepts">Concepts</a></li>
+                <li><a href="#exam">Exam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Explore the <span class="highlight">Quantum</span> World</h2>
+                <p class="subtitle">Master the fundamentals of Electronics, Photonics, Light, and Quantum Mechanics through interactive learning experiences.</p>
+                <p class="description">Dive deep into 90 comprehensive exam questions covering superposition, entanglement, quantum tunneling, and more.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Experiences Section -->
+        <section id="experiences" class="experiences-section">
+            <div class="container">
+                <h3 class="section-title">Interactive Quantum Simulations</h3>
+                <p class="section-subtitle">Visualize quantum phenomena in real-time</p>
+
+                <div class="simulations-grid">
+                    <!-- Superposition Visualizer -->
+                    <div class="simulation-card">
+                        <h4 class="card-title">Superposition Visualizer</h4>
+                        <p class="card-description">Two waves existing simultaneously until measured</p>
+                        <canvas id="superpositionCanvas" width="500" height="250" class="canvas"></canvas>
+                        <div class="controls">
+                            <button class="btn btn-primary" onclick="toggleSuperposition()">Play/Pause</button>
+                            <button class="btn btn-secondary" onclick="resetSuperposition()">Reset</button>
+                        </div>
+                        <p class="explanation">The purple wave is the superposition of the cyan and blue waves. In quantum mechanics, particles can exist in multiple states simultaneously until observed.</p>
+                    </div>
+
+                    <!-- Electron Orbits -->
+                    <div class="simulation-card">
+                        <h4 class="card-title">Electron Orbits</h4>
+                        <p class="card-description">Electrons in different energy levels around the nucleus</p>
+                        <canvas id="electronCanvas" width="400" height="300" class="canvas"></canvas>
+                        <div class="controls">
+                            <button class="btn btn-primary" onclick="toggleElectrons()">Play/Pause</button>
+                            <button class="btn btn-secondary" onclick="resetElectrons()">Reset</button>
+                        </div>
+                        <p class="explanation">Electrons orbit at different energy levels. Each level represents a quantized energy state. Electrons can jump between levels by absorbing or emitting energy.</p>
+                    </div>
+
+                    <!-- Double Slit Experiment -->
+                    <div class="simulation-card">
+                        <h4 class="card-title">Double Slit Experiment</h4>
+                        <p class="card-description">Wave interference and quantum behavior</p>
+                        <canvas id="slitCanvas" width="500" height="300" class="canvas"></canvas>
+                        <div class="controls">
+                            <button class="btn btn-primary" onclick="toggleSlit()">Play/Pause</button>
+                            <button class="btn btn-secondary" onclick="resetSlit()">Reset</button>
+                        </div>
+                        <p class="explanation">Light passes through two slits creating an interference pattern. This demonstrates the wave nature of light and the quantum superposition principle.</p>
+                    </div>
+
+                    <!-- Quantum Tunneling -->
+                    <div class="simulation-card">
+                        <h4 class="card-title">Quantum Tunneling</h4>
+                        <p class="card-description">Particles passing through energy barriers</p>
+                        <canvas id="tunnelingCanvas" width="500" height="250" class="canvas"></canvas>
+                        <div class="controls">
+                            <button class="btn btn-primary" onclick="toggleTunneling()">Play/Pause</button>
+                            <button class="btn btn-secondary" onclick="resetTunneling()">Reset</button>
+                        </div>
+                        <p class="explanation">Cyan particles represent quantum particles. Some pass through the red barrier (tunneling) even though classically they shouldn't have enough energy. This is a key quantum phenomenon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exam Questions Section -->
+        <section id="exam" class="exam-section">
+            <div class="container">
+                <h3 class="section-title">Exam Questions</h3>
+                <p class="section-subtitle">Study the complete exam paper with 90 questions across four sections</p>
+                
+                <div class="pdf-container">
+                    <iframe src="IQOExam2026.pdf" class="pdf-viewer"></iframe>
+                </div>
+
+                <div class="pdf-controls">
+                    <button class="btn btn-primary" onclick="setPdfHeight(600)">Standard View</button>
+                    <button class="btn btn-primary" onclick="setPdfHeight(900)">Expanded View</button>
+                    <a href="IQOExam2026.pdf" download class="btn btn-secondary">Download PDF</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quantum Concepts Section -->
+        <section id="concepts" class="concepts-section">
+            <div class="container">
+                <h3 class="section-title">Core Quantum Concepts</h3>
+                <p class="section-subtitle">Fundamental principles tested in the exam</p>
+
+                <div class="tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="showTab('superposition')">Superposition</button>
+                        <button class="tab-btn" onclick="showTab('entanglement')">Entanglement</button>
+                        <button class="tab-btn" onclick="showTab('photonics')">Photonics</button>
+                        <button class="tab-btn" onclick="showTab('electronics')">Electronics</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Superposition Tab -->
+                        <div id="superposition" class="tab-pane active">
+                            <div class="concept-card">
+                                <h4>Quantum Superposition</h4>
+                                <p class="concept-subtitle">The fundamental principle of quantum mechanics</p>
+                                <p>Superposition is the ability of a quantum system to exist in multiple states simultaneously until it is measured. Unlike classical objects that must be in one definite state, quantum particles like electrons and photons can be in a combination of states.</p>
+                                <div class="concept-box">
+                                    <p><strong>Key Insight:</strong> A quantum particle can be in state A, state B, or both simultaneously. Measurement collapses this superposition into one definite state.</p>
+                                </div>
+                                <ul class="concept-list">
+                                    <li>Enables quantum computing with qubits</li>
+                                    <li>Foundation for quantum interference</li>
+                                    <li>Critical for quantum algorithms</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Entanglement Tab -->
+                        <div id="entanglement" class="tab-pane">
+                            <div class="concept-card">
+                                <h4>Quantum Entanglement</h4>
+                                <p class="concept-subtitle">"Spooky action at a distance" - Einstein</p>
+                                <p>Entanglement occurs when two or more particles become correlated in such a way that the quantum state of one particle cannot be described independently of the others, even when separated by vast distances.</p>
+                                <div class="concept-box">
+                                    <p><strong>Key Property:</strong> Measuring one entangled particle instantly affects the state of the other, regardless of distance.</p>
+                                </div>
+                                <ul class="concept-list">
+                                    <li>Enables quantum cryptography</li>
+                                    <li>Basis for quantum teleportation</li>
+                                    <li>Powers quantum computing advantage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Photonics Tab -->
+                        <div id="photonics" class="tab-pane">
+                            <div class="concept-card">
+                                <h4>Photonics & Light</h4>
+                                <p class="concept-subtitle">The science of light and photons</p>
+                                <p>Photonics is the technology of generating, controlling, and manipulating light. Photons are the fundamental particles of light and exhibit both wave and particle properties.</p>
+                                <div class="concept-box">
+                                    <p><strong>Wave-Particle Duality:</strong> Light behaves as both a wave (with wavelength and frequency) and a particle (with energy and momentum).</p>
+                                </div>
+                                <ul class="concept-list">
+                                    <li>Laser technology and applications</li>
+                                    <li>Optical communication systems</li>
+                                    <li>Quantum optics experiments</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Electronics Tab -->
+                        <div id="electronics" class="tab-pane">
+                            <div class="concept-card">
+                                <h4>Quantum Electronics</h4>
+                                <p class="concept-subtitle">Electron behavior in quantum systems</p>
+                                <p>Quantum electronics studies the behavior of electrons at the quantum level, including phenomena like tunneling, quantized energy levels, and band structure in semiconductors.</p>
+                                <div class="concept-box">
+                                    <p><strong>Quantum Tunneling:</strong> Electrons can pass through energy barriers that would be impossible to cross in classical physics.</p>
+                                </div>
+                                <ul class="concept-list">
+                                    <li>Semiconductor device physics</li>
+                                    <li>Transistor and diode operation</li>
+                                    <li>Quantum well and superlattice structures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Path Section -->
+        <section class="learning-path">
+            <div class="container">
+                <h3 class="section-title">Learning Path</h3>
+                
+                <div class="path-grid">
+                    <div class="path-card">
+                        <h4>1. Explore</h4>
+                        <p>Start with the interactive simulations to visualize quantum concepts in action.</p>
+                    </div>
+                    <div class="path-card">
+                        <h4>2. Learn</h4>
+                        <p>Study the core concepts and understand the physics behind each phenomenon.</p>
+                    </div>
+                    <div class="path-card">
+                        <h4>3. Practice</h4>
+                        <p>Work through the exam questions to test your understanding and build confidence.</p>
+                    </div>
+                    <div class="path-card">
+                        <h4>4. Master</h4>
+                        <p>Achieve deep understanding of quantum mechanics and excel in the exam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h3>Ready to Master Quantum Mechanics?</h3>
+                    <p>Use the interactive simulations above to understand quantum phenomena, then test your knowledge with the exam questions.</p>
+                    <div class="cta-buttons">
+                        <a href="#experiences" class="btn btn-primary">Explore Simulations</a>
+                        <a href="#exam" class="btn btn-secondary">View Exam Questions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quantum Exam</h4>
+                    <p>An interactive learning platform for mastering quantum mechanics, photonics, and electronics.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p>This platform provides comprehensive exam materials and interactive simulations to help you understand quantum physics at a deeper level.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Quantum Exam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
